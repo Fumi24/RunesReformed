@@ -51,3 +51,6 @@ A. Make sure you have available rune pages, the program wont auto delete a page 
 ## Thanks to
 
 the RiotAPIDevCommunity discord - answering my stupid questions.
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
