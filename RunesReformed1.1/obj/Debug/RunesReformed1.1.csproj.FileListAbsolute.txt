@@ -1,0 +1,14 @@
+c:\users\fumi\source\repos\RunesReformed1.1\RunesReformed1.1\bin\Debug\RunesReformed1.1.exe.config
+c:\users\fumi\source\repos\RunesReformed1.1\RunesReformed1.1\bin\Debug\RunesReformed1.1.exe
+c:\users\fumi\source\repos\RunesReformed1.1\RunesReformed1.1\bin\Debug\RunesReformed1.1.pdb
+c:\users\fumi\source\repos\RunesReformed1.1\RunesReformed1.1\bin\Debug\EasyHttp.dll
+c:\users\fumi\source\repos\RunesReformed1.1\RunesReformed1.1\bin\Debug\JsonFx.dll
+c:\users\fumi\source\repos\RunesReformed1.1\RunesReformed1.1\bin\Debug\EasyHttp.pdb
+c:\users\fumi\source\repos\RunesReformed1.1\RunesReformed1.1\bin\Debug\JsonFx.xml
+c:\users\fumi\source\repos\RunesReformed1.1\RunesReformed1.1\obj\Debug\RunesReformed1.1.csprojResolveAssemblyReference.cache
+c:\users\fumi\source\repos\RunesReformed1.1\RunesReformed1.1\obj\Debug\RunesReformed1._1.Form1.resources
+c:\users\fumi\source\repos\RunesReformed1.1\RunesReformed1.1\obj\Debug\RunesReformed1._1.Properties.Resources.resources
+c:\users\fumi\source\repos\RunesReformed1.1\RunesReformed1.1\obj\Debug\RunesReformed1.1.csproj.GenerateResource.Cache
+c:\users\fumi\source\repos\RunesReformed1.1\RunesReformed1.1\obj\Debug\RunesReformed1.1.csproj.CoreCompileInputs.cache
+c:\users\fumi\source\repos\RunesReformed1.1\RunesReformed1.1\obj\Debug\RunesReformed1.1.exe
+c:\users\fumi\source\repos\RunesReformed1.1\RunesReformed1.1\obj\Debug\RunesReformed1.1.pdb
