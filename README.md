@@ -32,6 +32,7 @@ The program is coded so you should never have to update it (unless riot does som
 ## FAQ
 
 Q. Nothing happens???
+
 A. Make sure you have available rune pages, the program wont auto delete a page if you are at the maximum, so make sure you have a free page available.
 
 
