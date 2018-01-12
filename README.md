@@ -26,9 +26,13 @@ You should now have a basic rune page for any champion in league
 
 What is Malzahar gets insanly OP with AfterShock rune?
 
-The program is coded so you should never have to update it (unless riot does something) and if i know about it i will add it to the program and the next time you open it it will be there.
+The program is coded so you should never have to update it (unless riot does something), it will have the most used runes from champion.gg.
 
-Also if i have made any mistakes at all please put them as issues here or post in the reddit post, i will fix it asap.
+
+## FAQ
+
+Q. Nothing happens???
+A. Make sure you have available rune pages, the program wont auto delete a page if you are at the maximum, so make sure you have a free page available.
 
 
 ## Thanks to
