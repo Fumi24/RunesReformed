@@ -3,6 +3,9 @@
 An automatic rune setter for league of legends preseason rune changes, with over 160+ pages.
 
 ## How to use
+
+https://github.com/Fumi24/RunesReformed/releases/latest
+
 [Download here.](https://github.com/Fumi24/RunesReformed/releases/download/1/RunesReformed.rar)
 
 
@@ -20,6 +23,9 @@ Click "Set Runes"
 
 
 You should now have a basic rune page for any champion in league
+
+##Features
+- [x] Works in and out of champion select.
 
 
 ## Future proof
