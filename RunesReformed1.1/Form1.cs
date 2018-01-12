@@ -13,7 +13,7 @@ using System.Management;
 
 namespace RunesReformed1._1
 {
-    public partial class Form1 : Form
+    public partial class RunesReformed : Form
     {
         public static string token;
         public static string port;
@@ -62,7 +62,7 @@ namespace RunesReformed1._1
         public List<RunePage> Pagelist = new List<RunePage>();
         public List<string> Pagenamelist = new List<string>();
 
-        public Form1()
+        public RunesReformed()
         {
             InitializeComponent();
         }
@@ -158,12 +158,12 @@ namespace RunesReformed1._1
                                 if (atributes.Contains("token"))
                                 {
                                     string[] token = atributes.Split('=');
-                                    Form1.token = token[1];
+                                    RunesReformed.token = token[1];
                                 }
                                 if (atributes.Contains("port"))
                                 {
                                     string[] port = atributes.Split('=');
-                                    Form1.port = port[1];
+                                    RunesReformed.port = port[1];
                                 }
                             }
                         }

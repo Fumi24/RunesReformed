@@ -1,6 +1,6 @@
 ﻿namespace RunesReformed1._1
 {
-    partial class Form1
+    partial class RunesReformed
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RunesReformed));
             this.Champbox = new System.Windows.Forms.ComboBox();
             this.Pagebox = new System.Windows.Forms.ComboBox();
             this.Champlbl = new System.Windows.Forms.Label();
@@ -93,7 +94,7 @@
             this.Runebtn.UseVisualStyleBackColor = true;
             this.Runebtn.Click += new System.EventHandler(this.Runebtn_Click);
             // 
-            // Form1
+            // RunesReformed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -104,8 +105,9 @@
             this.Controls.Add(this.Champlbl);
             this.Controls.Add(this.Pagebox);
             this.Controls.Add(this.Champbox);
-            this.Name = "Form1";
-            this.Text = "RuneReformed";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "RunesReformed";
+            this.Text = "RunesReformed";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
