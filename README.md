@@ -3,12 +3,6 @@
 An automatic rune setter for league of legends preseason rune changes, with over 160+ pages.
 
 ## How to use
-
-
-<a class="github-button" href="https://github.com/Fumi24/RunesReformed/archive/master.zip" data-icon="octicon-cloud-download" data-size="large" aria-label="Download Fumi24/RunesReformed on GitHub">Download</a>
-
-https://github.com/Fumi24/RunesReformed/releases/latest
-
 [Download here.](https://github.com/Fumi24/RunesReformed/releases/download/1/RunesReformed.rar)
 
 
