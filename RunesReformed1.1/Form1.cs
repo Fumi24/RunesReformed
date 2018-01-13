@@ -237,7 +237,7 @@ namespace RunesReformed1._1
 
         private void AddPage_Click(object sender, EventArgs e)
         {
-            string Newpage = Microsoft.VisualBasic.Interaction.InputBox("Here you can add a page, remember to include every rune and the name of the champion.", "RunesReformed", "Twisted Fate, 5, 2, 3, 1, 4, 3, 3");
+            string Newpage = Microsoft.VisualBasic.Interaction.InputBox("Here you can add a page, remember to include every rune and the name of the champion.", "RunesReformed", "Twisted Fate, 8000, 8005, 9111, 9104, 8014, 8200, 8234, 8236");
 
 
             string[] newpageStrings = Newpage.Split(',');
