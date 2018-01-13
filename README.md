@@ -40,9 +40,7 @@ to break it down
 - 8234 <-- Celerity
 - 8236 <-- Gathering Storm
 
-
-
-You should now have a basic rune page for any champion in league
+[List of runes](https://github.com/Fumi24/RunesReformed/blob/master/Extras/Rune%20IDS.txt)
 
 ## Features
 - [x] Works in and out of champion select.
