@@ -61,9 +61,11 @@ Q. Nothing happens???
 A. Make sure you have available rune pages, the program wont auto delete a page if you are at the maximum, so make sure you have a free page available.
 
 Q. It crashes when i make a page called why?
+
 A. League is only made to have a few number of characters in the title of a page, try to keep it to a champion name and 1 word e.g "Twisted Fate Mid" and avoid using any special characters such as "#"!"
 
 Q. My rune page doesnt load correctly
+
 A. You might have entered a wrong number e.g making a rune page called "Mundo, 8000, 8000 etc" wont work because league cant set your rune to Precision more than once, you also cant take Press The Attack more than once.
 
 
