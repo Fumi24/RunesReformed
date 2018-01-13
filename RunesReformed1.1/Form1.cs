@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -73,6 +74,7 @@ namespace RunesReformed1._1
             getpages();
             Champbox.DataSource = ChampionList;
             Leagueconnect();
+            LoadOfflinePages();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -132,6 +134,28 @@ namespace RunesReformed1._1
             }
         }
 
+        public void LoadOfflinePages()
+        {
+            string path = Environment.CurrentDirectory + @"\Runepages.txt";
+            if (!File.Exists(path))
+            {
+                File.CreateText(path);
+            }
+            else
+            {
+                foreach (string data in File.ReadAllLines(path))
+                {
+                    string[] runes = data.Split(',');
+                    RunePage import = new RunePage(
+                        runes[0], Convert.ToInt32(runes[1]), Convert.ToInt32(runes[2]),
+                        Convert.ToInt32(runes[3]), Convert.ToInt32(runes[4]), Convert.ToInt32(runes[5]),
+                        Convert.ToInt32(runes[6]), Convert.ToInt32(runes[7]), Convert.ToInt32(runes[8]));
+                    Pagelist.Add(import);
+                    Pagenamelist.Add(runes[0]);
+                }
+            }
+        }
+
         public void Leagueconnect()
         {
             var process = Process.GetProcessesByName("LeagueClientUx");
@@ -175,8 +199,8 @@ namespace RunesReformed1._1
 
         private void Runebtn_Click(object sender, EventArgs e)
         {
-
-            Pagebox.SelectedIndex = 0;
+            if (Pagebox.SelectedItem == null)
+                Pagebox.SelectedIndex = 0;
             String selectedPage = Pagebox.SelectedItem.ToString();
 
             RunePage runes = Pagelist.Find(r => r._pageName == selectedPage);
@@ -209,6 +233,27 @@ namespace RunesReformed1._1
             {
                 MessageBox.Show("Something somewhere went wrong, show this to the admin " + exception.Message);
             }
+        }
+
+        private void AddPage_Click(object sender, EventArgs e)
+        {
+            string Newpage = Microsoft.VisualBasic.Interaction.InputBox("Here you can add a page, remember to include every rune and the name of the champion.", "RunesReformed", "Twisted Fate, 5, 2, 3, 1, 4, 3, 3");
+
+
+            string[] newpageStrings = Newpage.Split(',');
+            RunePage import = new RunePage(
+                newpageStrings[0], Convert.ToInt32(newpageStrings[1]), Convert.ToInt32(newpageStrings[2]),
+                Convert.ToInt32(newpageStrings[3]), Convert.ToInt32(newpageStrings[4]),
+                Convert.ToInt32(newpageStrings[5]),
+                Convert.ToInt32(newpageStrings[6]), Convert.ToInt32(newpageStrings[7]),
+                Convert.ToInt32(newpageStrings[8]));
+            Pagelist.Add(import);
+            Pagenamelist.Add(newpageStrings[0]);
+
+            StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + @"\Runepages.txt", true);
+            sw.WriteLine(Newpage);
+            sw.Flush();
+            sw.Close();
         }
     }
 }

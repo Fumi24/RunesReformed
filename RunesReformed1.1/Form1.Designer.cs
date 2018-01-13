@@ -35,6 +35,7 @@
             this.Rolelbl = new System.Windows.Forms.Label();
             this.Pagelbl = new System.Windows.Forms.Label();
             this.Runebtn = new System.Windows.Forms.Button();
+            this.AddPage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Champbox
@@ -86,19 +87,30 @@
             // 
             // Runebtn
             // 
-            this.Runebtn.Location = new System.Drawing.Point(15, 66);
+            this.Runebtn.Location = new System.Drawing.Point(165, 66);
             this.Runebtn.Name = "Runebtn";
-            this.Runebtn.Size = new System.Drawing.Size(257, 23);
+            this.Runebtn.Size = new System.Drawing.Size(107, 23);
             this.Runebtn.TabIndex = 6;
             this.Runebtn.Text = "Set Runes";
             this.Runebtn.UseVisualStyleBackColor = true;
             this.Runebtn.Click += new System.EventHandler(this.Runebtn_Click);
+            // 
+            // AddPage
+            // 
+            this.AddPage.Location = new System.Drawing.Point(15, 66);
+            this.AddPage.Name = "AddPage";
+            this.AddPage.Size = new System.Drawing.Size(107, 23);
+            this.AddPage.TabIndex = 7;
+            this.AddPage.Text = "Add Page";
+            this.AddPage.UseVisualStyleBackColor = true;
+            this.AddPage.Click += new System.EventHandler(this.AddPage_Click);
             // 
             // RunesReformed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 98);
+            this.Controls.Add(this.AddPage);
             this.Controls.Add(this.Runebtn);
             this.Controls.Add(this.Pagelbl);
             this.Controls.Add(this.Rolelbl);
@@ -122,6 +134,7 @@
         private System.Windows.Forms.Label Rolelbl;
         private System.Windows.Forms.Label Pagelbl;
         private System.Windows.Forms.Button Runebtn;
+        private System.Windows.Forms.Button AddPage;
     }
 }
 
