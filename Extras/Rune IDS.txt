@@ -73,28 +73,3 @@
 8347, Cosmic Insight
 8410, Approach Velocity
 8339, Celestial Body
-
-
-  {
-    "current": false,
-    "formatVersion": 4,
-    "id": 50,
-    "isActive": false,
-    "isDeletable": false,
-    "isEditable": false,
-    "isValid": true,
-    "name": "api",
-    "order": 2147483642,
-    "primaryStyleId": 8400,
-    "selectedPerkIds": [
-      8112,
-      8143,
-      8138,
-      8135,
-      8243,
-      8210
-    ],
-    "subStyleId": 8000
-  }
-
-
