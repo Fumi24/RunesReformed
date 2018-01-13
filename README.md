@@ -26,6 +26,7 @@ You should now have a basic rune page for any champion in league
 
 ## Features
 - [x] Works in and out of champion select.
+- [x] You can add your own pages.
 
 
 ## Future proof
