@@ -68,6 +68,10 @@ Q. My rune page doesnt load correctly
 
 A. You might have entered a wrong number e.g making a rune page called "Mundo, 8000, 8000 etc" wont work because league cant set your rune to Precision more than once, you also cant take Press The Attack more than once.
 
+Q. Can i get banned using this?!
+
+A. Im only using Riot's own stuff, so i dont see why this would be banable.
+
 
 ## Thanks to
 
