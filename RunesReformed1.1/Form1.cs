@@ -112,6 +112,7 @@ namespace RunesReformed1._1
             {
                 Champion ImportChampBox = new Champion(champ._Id, champ._DisplayName);
                 ChampionList.Add(ImportChampBox.Name);
+                ChampionList.Sort();
             }
         }
 
@@ -174,6 +175,8 @@ namespace RunesReformed1._1
 
         private void Runebtn_Click(object sender, EventArgs e)
         {
+
+            Pagebox.SelectedIndex = 0;
             String selectedPage = Pagebox.SelectedItem.ToString();
 
             RunePage runes = Pagelist.Find(r => r._pageName == selectedPage);
