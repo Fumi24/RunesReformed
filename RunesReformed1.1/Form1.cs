@@ -66,6 +66,7 @@ namespace RunesReformed1._1
 
         public RunesReformed()
         {
+            http = new HttpClient();
             InitializeComponent();
         }
 
@@ -112,7 +113,6 @@ namespace RunesReformed1._1
 
         public void getchamps()
         {
-            http = new HttpClient();
             http.Request.Accept = HttpContentTypes.ApplicationJson;
             var response = http.Get("https://webapichampions.azurewebsites.net/api/values");
             var getchamps = response.DynamicBody;
@@ -127,7 +127,6 @@ namespace RunesReformed1._1
 
         public void updater()
         {
-            http = new HttpClient();
             http.Request.Accept = HttpContentTypes.ApplicationJson;
             var response = http.Get("https://api.github.com/repos/Fumi24/RunesReformed/releases");
             var getid = response.DynamicBody;
@@ -253,7 +252,6 @@ namespace RunesReformed1._1
 
                 string password = token;
 
-                http = new HttpClient();
                 http.Request.Accept = HttpContentTypes.ApplicationJson;
                 http.Request.SetBasicAuthentication("riot", password);
 
