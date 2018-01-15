@@ -18,7 +18,7 @@ namespace RunesReformed1._1
     {
         public static string token;
         public static string port;
-
+        public static HttpClient http;
         public class Champion
         {
             public int Id { get; set; }
@@ -70,11 +70,12 @@ namespace RunesReformed1._1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            updater();
+            Leagueconnect();
             getchamps();
             getpages();
-            Champbox.DataSource = ChampionList;
-            Leagueconnect();
             LoadOfflinePages();
+            Champbox.DataSource = ChampionList;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -105,7 +106,7 @@ namespace RunesReformed1._1
 
         public void getchamps()
         {
-            var http = new HttpClient();
+            http = new HttpClient();
             http.Request.Accept = HttpContentTypes.ApplicationJson;
             var response = http.Get("https://webapichampions.azurewebsites.net/api/values");
             var getchamps = response.DynamicBody;
@@ -118,9 +119,27 @@ namespace RunesReformed1._1
             }
         }
 
+        public void updater()
+        {
+            http = new HttpClient();
+            http.Request.Accept = HttpContentTypes.ApplicationJson;
+            var response = http.Get("https://api.github.com/repos/Fumi24/RunesReformed/releases");
+            var getid = response.DynamicBody;
+            var updateid = getid[0].tag_name;
+
+            if (updateid != "1.22")
+            {
+                string messagetext =
+                    "Update available, Press OK to download the new version";
+                DialogResult boxanswer = MessageBox.Show(messagetext, "updater",MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                if (boxanswer == DialogResult.OK)
+                {
+                    Process.Start("https://github.com/Fumi24/RunesReformed/releases/latest");
+                }
+            }
+        }
         public void getpages()
         {
-            var http = new HttpClient();
             http.Request.Accept = HttpContentTypes.ApplicationJson;
             var response = http.Get("https://wepapirunepages.azurewebsites.net/api/values");
             var getpages = response.DynamicBody;
@@ -223,11 +242,11 @@ namespace RunesReformed1._1
 
                 string password = token;
 
-                var riotHttp = new HttpClient();
-                riotHttp.Request.Accept = HttpContentTypes.ApplicationJson;
-                riotHttp.Request.SetBasicAuthentication("riot", password);
+                http = new HttpClient();
+                http.Request.Accept = HttpContentTypes.ApplicationJson;
+                http.Request.SetBasicAuthentication("riot", password);
 
-                riotHttp.Post("https://127.0.0.1:" + port + "/lol-perks/v1/pages", inputLCUx, HttpContentTypes.ApplicationJson);
+                http.Post("https://127.0.0.1:" + port + "/lol-perks/v1/pages", inputLCUx, HttpContentTypes.ApplicationJson);
             }
             catch (Exception exception)
             {
