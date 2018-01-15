@@ -47,13 +47,6 @@ to break it down
 - [x] You can add your own pages.
 
 
-## Future proof
-
-What is Malzahar gets insanly OP with AfterShock rune?
-
-The program is coded so you should never have to update it (unless riot does something), it will have the most used runes from champion.gg.
-
-
 ## FAQ
 
 Q. Nothing happens???
@@ -76,3 +69,8 @@ A. Im only using Riot's own stuff, so i dont see why this would be banable.
 ## Thanks to
 
 the RiotAPIDevCommunity discord - answering my stupid questions.
+
+
+## Donating
+
+I've started a fund on paypal as the cost of running RunesReformed is pretty though as a student, any donations at all will go to make RunesReformed better. [Donation link](https://paypal.me/pools/c/811LSy2Lae)
