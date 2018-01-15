@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Principal;
 using System.Windows.Forms;
 using EasyHttp.Http;
 using System.Management;
@@ -70,6 +71,11 @@ namespace RunesReformed1._1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            if(!(new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator)))
+            {
+                MessageBox.Show("App not running with administrator privilege. Please run this app as administrator");
+                this.Close();
+            }
             updater();
             Leagueconnect();
             getchamps();
@@ -178,14 +184,7 @@ namespace RunesReformed1._1
         public void Leagueconnect()
         {
             var process = Process.GetProcessesByName("LeagueClientUx");
-            if (process.Length == 0)
-            {
-                string msgbox =
-                    "Could not find the League of Legends process, is League of Legends running?";
-                MessageBox.Show(msgbox);
-                this.Close();
-            }
-            else
+            if (process.Length != 0)
             {
                 foreach (var getid in process)
                 {
@@ -194,26 +193,38 @@ namespace RunesReformed1._1
                     {
                         foreach (ManagementObject mo in mos.Get())
                         {
-                            string data = (mo["CommandLine"].ToString());
-                            string[] CommandlineArray = data.Split('"');
-
-                            foreach (var atributes in CommandlineArray)
+                            if (mo["CommandLine"] != null)
                             {
-                                if (atributes.Contains("token"))
+                                string data = (mo["CommandLine"].ToString());
+                                string[] CommandlineArray = data.Split('"');
+
+                                foreach (var attributes in CommandlineArray)
                                 {
-                                    string[] token = atributes.Split('=');
-                                    RunesReformed.token = token[1];
+                                    if (attributes.Contains("token") || attributes.Contains("remoting-auth-token"))
+                                    {
+                                        string[] token = attributes.Split('=');
+                                        RunesReformed.token = token[1];
+                                    }
+                                    if (attributes.Contains("port") || attributes.Contains("app-port"))
+                                    {
+                                        string[] port = attributes.Split('=');
+                                        RunesReformed.port = port[1];
+                                    }
                                 }
-                                if (atributes.Contains("port"))
+                                if(string.IsNullOrWhiteSpace(RunesReformed.token) || string.IsNullOrWhiteSpace(RunesReformed.port))
                                 {
-                                    string[] port = atributes.Split('=');
-                                    RunesReformed.port = port[1];
+                                    MessageBox.Show("League of Legends process is detected but no information can be extracted.");
+                                    this.Close();
                                 }
+                                return;
                             }
                         }
                     }
                 }
             }
+            // We cannot retrieve necessary information to make the app work, can close here.
+            MessageBox.Show("Could not find the League of Legends process, is League of Legends running?");
+            this.Close();
         }
 
         private void Runebtn_Click(object sender, EventArgs e)
@@ -258,6 +269,8 @@ namespace RunesReformed1._1
         {
             string Newpage = Microsoft.VisualBasic.Interaction.InputBox("Here you can add a page, remember to include every rune and the name of the champion.", "RunesReformed", "Twisted Fate, 8000, 8005, 9111, 9104, 8014, 8200, 8234, 8236");
 
+            if (string.IsNullOrEmpty(Newpage))
+                return;
 
             string[] newpageStrings = Newpage.Split(',');
             RunePage import = new RunePage(
