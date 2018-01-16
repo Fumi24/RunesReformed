@@ -21,7 +21,7 @@ Click "Set Runes"
 
 ## Creating your own page
 
-You can now add your favorite pages much easier, simple click add page, Write the the text field "Name, URL" you can get the URL here https://na.leagueoflegends.com/en/featured/preseason-update#builder
+You can now add your favorite pages much easier, simple click add page, Write in the text field "Name, URL" you can get the URL here https://na.leagueoflegends.com/en/featured/preseason-update#builder
 
 Simply make a build and click the little Share icon in the button and then copy that url
 
