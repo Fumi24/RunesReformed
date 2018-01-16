@@ -21,26 +21,9 @@ Click "Set Runes"
 
 ## Creating your own page
 
-Click Add Page
+You can now add your favorite pages much easier, simple click add page, Write the the text field "Name, URL" you can get the URL here https://na.leagueoflegends.com/en/featured/preseason-update#builder
 
-Now input a page like this
-
-```
-"Twisted Fate, 8000, 8005, 9111, 9104, 8014, 8200, 8234, 8236"
-```
-to break it down
-
-- Twisted Fate <-- Name
-- 8000 <-- Start rune (e.g 8000 is Precision)
-- 8005 <-- Press the attack
-- 9111 <-- Triumph
-- 9104 <-- Legend: Alacrity
-- 8014 <-- Coup de Grace
-- 8200 <-- Secondary rune (e.g 8200 is Socery)
-- 8234 <-- Celerity
-- 8236 <-- Gathering Storm
-
-[List of runes](https://github.com/Fumi24/RunesReformed/blob/master/Extras/Rune%20IDS.txt)
+Simply make a build and click the little Share icon in the button and then copy that url
 
 ## Features
 - [x] Works in and out of champion select.
