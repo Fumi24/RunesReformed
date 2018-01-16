@@ -12,6 +12,7 @@ using System.Security.Principal;
 using System.Windows.Forms;
 using EasyHttp.Http;
 using System.Management;
+using RunesReformed1._1.Translators;
 
 namespace RunesReformed1._1
 {
@@ -72,7 +73,7 @@ namespace RunesReformed1._1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if(!(new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator)))
+            if (!(new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator)))
             {
                 MessageBox.Show("App not running with administrator privilege. Please run this app as administrator");
                 this.Close();
@@ -136,7 +137,7 @@ namespace RunesReformed1._1
             {
                 string messagetext =
                     "Update available, Press OK to download the new version";
-                DialogResult boxanswer = MessageBox.Show(messagetext, "updater",MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                DialogResult boxanswer = MessageBox.Show(messagetext, "updater", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
                 if (boxanswer == DialogResult.OK)
                 {
                     Process.Start("https://github.com/Fumi24/RunesReformed/releases/latest");
@@ -210,7 +211,7 @@ namespace RunesReformed1._1
                                         RunesReformed.port = port[1];
                                     }
                                 }
-                                if(string.IsNullOrWhiteSpace(RunesReformed.token) || string.IsNullOrWhiteSpace(RunesReformed.port))
+                                if (string.IsNullOrWhiteSpace(RunesReformed.token) || string.IsNullOrWhiteSpace(RunesReformed.port))
                                 {
                                     MessageBox.Show("League of Legends process is detected but no information can be extracted.");
                                     this.Close();
@@ -265,23 +266,31 @@ namespace RunesReformed1._1
 
         private void AddPage_Click(object sender, EventArgs e)
         {
-            string Newpage = Microsoft.VisualBasic.Interaction.InputBox("Here you can add a page, remember to include every rune and the name of the champion.", "RunesReformed", "Twisted Fate, 8000, 8005, 9111, 9104, 8014, 8200, 8234, 8236");
+            string Newpage = Microsoft.VisualBasic.Interaction.InputBox(
+                "Here you can add a page, a page contains a Name and the URL of Riots RunesReforged tool",
+                "RunesReformed",
+                "Name of page, Riot URL");
+
+            string[] SplitRiotpage = Newpage.Split(',');
+
+            RiotTranslator RT = new RiotTranslator();
+
+            int[] riotpage = RT.Translate(SplitRiotpage[1]);
+
 
             if (string.IsNullOrEmpty(Newpage))
                 return;
 
             string[] newpageStrings = Newpage.Split(',');
             RunePage import = new RunePage(
-                newpageStrings[0], Convert.ToInt32(newpageStrings[1]), Convert.ToInt32(newpageStrings[2]),
-                Convert.ToInt32(newpageStrings[3]), Convert.ToInt32(newpageStrings[4]),
-                Convert.ToInt32(newpageStrings[5]),
-                Convert.ToInt32(newpageStrings[6]), Convert.ToInt32(newpageStrings[7]),
-                Convert.ToInt32(newpageStrings[8]));
+                SplitRiotpage[0], riotpage[0], riotpage[1],
+                riotpage[2], riotpage[3], riotpage[4], riotpage[5], riotpage[6], riotpage[7]);
             Pagelist.Add(import);
-            Pagenamelist.Add(newpageStrings[0]);
+            Pagenamelist.Add(SplitRiotpage[0]);
 
             StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + @"\Runepages.txt", true);
-            sw.WriteLine(Newpage);
+            sw.WriteLine(SplitRiotpage[0] + "," + riotpage[0] + "," + riotpage[1] + "," + riotpage[2] + "," + riotpage[3] + "," + riotpage[4]
+                + "," + riotpage[5] + "," + riotpage[6] + ',' + riotpage[7]);
             sw.Flush();
             sw.Close();
         }
