@@ -45,6 +45,7 @@ to break it down
 ## Features
 - [x] Works in and out of champion select.
 - [x] You can add your own pages.
+- [x] Garena Support (Thanks Secret)
 
 
 ## FAQ
