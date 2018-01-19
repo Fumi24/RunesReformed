@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using EasyHttp.Http;
 using System.Management;
 using RunesReformed1._1.Translators;
+using JsonFx.Json;
 
 namespace RunesReformed1._1
 {
@@ -104,7 +105,7 @@ namespace RunesReformed1._1
                 }
                 else
                 {
-                    if (rune.Contains(champ))
+                    if (rune.Contains(champ) || rune.Contains(champ.ToLower()))
                     {
                         Pagebox.Items.Add(rune);
                     }
@@ -281,7 +282,14 @@ namespace RunesReformed1._1
                 http.Request.Accept = HttpContentTypes.ApplicationJson;
                 http.Request.SetBasicAuthentication("riot", password);
 
-                http.Post("https://127.0.0.1:" + port + "/lol-perks/v1/pages", inputLCUx, HttpContentTypes.ApplicationJson);
+                var response = http.Post("https://127.0.0.1:" + port + "/lol-perks/v1/pages", inputLCUx, HttpContentTypes.ApplicationJson);
+
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    var error = response.StaticBody<Error>();
+                    if (error.message.Equals("Max pages reached"))
+                        MessageBox.Show("Max Pages Reached");
+                }
             }
             catch (Exception exception)
             {
@@ -306,20 +314,34 @@ namespace RunesReformed1._1
             if (string.IsNullOrEmpty(Newpage))
                 return;
 
-            string[] newpageStrings = Newpage.Split(',');
             RunePage import = new RunePage(
                 SplitRiotpage[0], riotpage[0], riotpage[1],
                 riotpage[2], riotpage[3], riotpage[4], riotpage[5], riotpage[6], riotpage[7]);
             Pagelist.Add(import);
             Pagenamelist.Add(SplitRiotpage[0]);
 
+
             StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + @"\Runepages.txt", true);
             sw.WriteLine(SplitRiotpage[0] + "," + riotpage[0] + "," + riotpage[1] + "," + riotpage[2] + "," + riotpage[3] + "," + riotpage[4]
                 + "," + riotpage[5] + "," + riotpage[6] + ',' + riotpage[7]);
             sw.Flush();
             sw.Close();
-        }
 
+
+            int index = Champbox.SelectedIndex;
+            Champbox.SelectedIndex = 0;
+            Champbox.SelectedIndex = index;
+        }
+        public class Error
+        {
+            [JsonName("errorCode")]
+            public string errorCode { get; set; }
+            [JsonName("httpStatus")]
+            public int httpStatus { get; set; }
+            [JsonName("message")]
+            public string message { get; set; }
+
+        }
         private void DeleteCheck_CheckedChanged(object sender, EventArgs e)
         {
 
