@@ -181,6 +181,30 @@ namespace RunesReformed1._1
             }
         }
 
+        public void DeletePage()
+        {
+            if (DeleteCheck.Checked)
+            {
+                http = new HttpClient();
+                http.Request.Accept = HttpContentTypes.ApplicationJson;
+                http.Request.ForceBasicAuth = true;
+                http.Request.SetBasicAuthentication("riot", token);
+                var response = http.Get("https://127.0.0.1:" + port + "/lol-perks/v1/currentpage");
+                var currentpage = response.DynamicBody;
+
+                int deleteid = currentpage.id;
+
+                if (deleteid == 54 || deleteid == 53 || deleteid == 52 || deleteid == 51 || deleteid == 50)
+                    MessageBox.Show("Cant Delete Pages, Looks like its only Riots default pages left, if you know this is wrong, click the page once so it gets set to current.");
+                else
+                {
+                    http.Delete("https://127.0.0.1:" + port + "/lol-perks/v1/pages/"+deleteid);
+                }
+            }
+        }
+
+
+
         public void Leagueconnect()
         {
             var process = Process.GetProcessesByName("LeagueClientUx");
@@ -229,6 +253,7 @@ namespace RunesReformed1._1
 
         private void Runebtn_Click(object sender, EventArgs e)
         {
+            DeletePage();
             if (Pagebox.SelectedItem == null)
                 Pagebox.SelectedIndex = 0;
             String selectedPage = Pagebox.SelectedItem.ToString();
@@ -293,6 +318,11 @@ namespace RunesReformed1._1
                 + "," + riotpage[5] + "," + riotpage[6] + ',' + riotpage[7]);
             sw.Flush();
             sw.Close();
+        }
+
+        private void DeleteCheck_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

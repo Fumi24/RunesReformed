@@ -36,6 +36,7 @@
             this.Pagelbl = new System.Windows.Forms.Label();
             this.Runebtn = new System.Windows.Forms.Button();
             this.AddPage = new System.Windows.Forms.Button();
+            this.DeleteCheck = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Champbox
@@ -105,11 +106,23 @@
             this.AddPage.UseVisualStyleBackColor = true;
             this.AddPage.Click += new System.EventHandler(this.AddPage_Click);
             // 
+            // DeleteCheck
+            // 
+            this.DeleteCheck.AutoSize = true;
+            this.DeleteCheck.Location = new System.Drawing.Point(15, 96);
+            this.DeleteCheck.Name = "DeleteCheck";
+            this.DeleteCheck.Size = new System.Drawing.Size(122, 17);
+            this.DeleteCheck.TabIndex = 8;
+            this.DeleteCheck.Text = "Delete Current Page";
+            this.DeleteCheck.UseVisualStyleBackColor = true;
+            this.DeleteCheck.CheckedChanged += new System.EventHandler(this.DeleteCheck_CheckedChanged);
+            // 
             // RunesReformed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 98);
+            this.ClientSize = new System.Drawing.Size(284, 119);
+            this.Controls.Add(this.DeleteCheck);
             this.Controls.Add(this.AddPage);
             this.Controls.Add(this.Runebtn);
             this.Controls.Add(this.Pagelbl);
@@ -135,6 +148,7 @@
         private System.Windows.Forms.Label Pagelbl;
         private System.Windows.Forms.Button Runebtn;
         private System.Windows.Forms.Button AddPage;
+        private System.Windows.Forms.CheckBox DeleteCheck;
     }
 }
 
