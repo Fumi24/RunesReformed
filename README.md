@@ -4,7 +4,7 @@ An automatic rune setter for league of legends preseason rune changes, with over
 
 ## How to use
 
-[Download here.](https://github.com/Fumi24/RunesReformed/releases/download/1.3/RuneReformed.zip)
+[Download here.](https://github.com/Fumi24/RunesReformed/releases/latest)
 
 Open League of legends.
 
