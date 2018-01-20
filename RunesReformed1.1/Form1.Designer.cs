@@ -40,7 +40,6 @@
             this.Runepagelink = new System.Windows.Forms.LinkLabel();
             this.Donatelink = new System.Windows.Forms.LinkLabel();
             this.Githublink = new System.Windows.Forms.LinkLabel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Champbox
@@ -155,23 +154,11 @@
             this.Githublink.Text = "Github";
             this.Githublink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Githublink_LinkClicked);
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(165, 95);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(114, 17);
-            this.checkBox1.TabIndex = 12;
-            this.checkBox1.Text = "Hide Online Pages";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // RunesReformed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 147);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.Githublink);
             this.Controls.Add(this.Donatelink);
             this.Controls.Add(this.Runepagelink);
@@ -205,7 +192,6 @@
         private System.Windows.Forms.LinkLabel Runepagelink;
         private System.Windows.Forms.LinkLabel Donatelink;
         private System.Windows.Forms.LinkLabel Githublink;
-        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

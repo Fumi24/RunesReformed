@@ -134,7 +134,7 @@ namespace RunesReformed1._1
             var getid = response.DynamicBody;
             var updateid = getid[0].tag_name;
 
-            if (updateid != "1.3")
+            if (updateid != "1.3.5")
             {
                 string messagetext =
                     "Update available, Press OK to download the new version";
@@ -364,27 +364,9 @@ namespace RunesReformed1._1
             Process.Start("https://github.com/Fumi24/RunesReformed");
         }
 
-        public void HideOnline()
-        {
-            if (checkBox1.Checked)
-            {
-
-                foreach (var HCHW in Pagenamelist.ToList())
-                {
-                    List<string> tempnamelist = new List<string>();
-                    if (HCHW.Contains("HW%") || HCHW.Contains("HC%"))
-                    {
-                        tempnamelist.Add(HCHW);
-                        Pagenamelist.RemoveAll(x => x.Contains("HC%") || x.Contains("HW%"));
-                    }
-                }
-
-            }
-        }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            HideOnline();
+
         }
     }
 }
