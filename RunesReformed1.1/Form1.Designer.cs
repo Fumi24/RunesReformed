@@ -37,6 +37,10 @@
             this.Runebtn = new System.Windows.Forms.Button();
             this.AddPage = new System.Windows.Forms.Button();
             this.DeleteCheck = new System.Windows.Forms.CheckBox();
+            this.Runepagelink = new System.Windows.Forms.LinkLabel();
+            this.Donatelink = new System.Windows.Forms.LinkLabel();
+            this.Githublink = new System.Windows.Forms.LinkLabel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Champbox
@@ -117,11 +121,60 @@
             this.DeleteCheck.UseVisualStyleBackColor = true;
             this.DeleteCheck.CheckedChanged += new System.EventHandler(this.DeleteCheck_CheckedChanged);
             // 
+            // Runepagelink
+            // 
+            this.Runepagelink.AutoSize = true;
+            this.Runepagelink.Location = new System.Drawing.Point(12, 125);
+            this.Runepagelink.Name = "Runepagelink";
+            this.Runepagelink.Size = new System.Drawing.Size(81, 13);
+            this.Runepagelink.TabIndex = 9;
+            this.Runepagelink.TabStop = true;
+            this.Runepagelink.Text = "Runepage Tool";
+            this.Runepagelink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Runepagelink_LinkClicked);
+            // 
+            // Donatelink
+            // 
+            this.Donatelink.AutoSize = true;
+            this.Donatelink.Location = new System.Drawing.Point(137, 125);
+            this.Donatelink.Name = "Donatelink";
+            this.Donatelink.Size = new System.Drawing.Size(42, 13);
+            this.Donatelink.TabIndex = 10;
+            this.Donatelink.TabStop = true;
+            this.Donatelink.Text = "Donate";
+            this.Donatelink.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Donatelink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Donatelink_LinkClicked);
+            // 
+            // Githublink
+            // 
+            this.Githublink.AutoSize = true;
+            this.Githublink.Location = new System.Drawing.Point(234, 125);
+            this.Githublink.Name = "Githublink";
+            this.Githublink.Size = new System.Drawing.Size(38, 13);
+            this.Githublink.TabIndex = 11;
+            this.Githublink.TabStop = true;
+            this.Githublink.Text = "Github";
+            this.Githublink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Githublink_LinkClicked);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(165, 95);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(114, 17);
+            this.checkBox1.TabIndex = 12;
+            this.checkBox1.Text = "Hide Online Pages";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // RunesReformed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 119);
+            this.ClientSize = new System.Drawing.Size(284, 147);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.Githublink);
+            this.Controls.Add(this.Donatelink);
+            this.Controls.Add(this.Runepagelink);
             this.Controls.Add(this.DeleteCheck);
             this.Controls.Add(this.AddPage);
             this.Controls.Add(this.Runebtn);
@@ -149,6 +202,10 @@
         private System.Windows.Forms.Button Runebtn;
         private System.Windows.Forms.Button AddPage;
         private System.Windows.Forms.CheckBox DeleteCheck;
+        private System.Windows.Forms.LinkLabel Runepagelink;
+        private System.Windows.Forms.LinkLabel Donatelink;
+        private System.Windows.Forms.LinkLabel Githublink;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

@@ -199,7 +199,7 @@ namespace RunesReformed1._1
                     MessageBox.Show("Cant Delete Pages, Looks like its only Riots default pages left, if you know this is wrong, click the page once so it gets set to current.");
                 else
                 {
-                    http.Delete("https://127.0.0.1:" + port + "/lol-perks/v1/pages/"+deleteid);
+                    http.Delete("https://127.0.0.1:" + port + "/lol-perks/v1/pages/" + deleteid);
                 }
             }
         }
@@ -314,6 +314,10 @@ namespace RunesReformed1._1
             if (string.IsNullOrEmpty(Newpage))
                 return;
 
+            string CheckDupes = Pagenamelist.Find(x => x == SplitRiotpage[1]);
+            if (CheckDupes != null)
+                MessageBox.Show("Duplicate Page");
+
             RunePage import = new RunePage(
                 SplitRiotpage[0], riotpage[0], riotpage[1],
                 riotpage[2], riotpage[3], riotpage[4], riotpage[5], riotpage[6], riotpage[7]);
@@ -328,9 +332,7 @@ namespace RunesReformed1._1
             sw.Close();
 
 
-            int index = Champbox.SelectedIndex;
-            Champbox.SelectedIndex = 0;
-            Champbox.SelectedIndex = index;
+            comboBox1_SelectedIndexChanged(Champbox, new EventArgs());
         }
         public class Error
         {
@@ -345,6 +347,44 @@ namespace RunesReformed1._1
         private void DeleteCheck_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Runepagelink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://na.leagueoflegends.com/en/featured/preseason-update#builder");
+        }
+
+        private void Donatelink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://paypal.me/pools/c/811LSy2Lae");
+        }
+
+        private void Githublink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/Fumi24/RunesReformed");
+        }
+
+        public void HideOnline()
+        {
+            if (checkBox1.Checked)
+            {
+
+                foreach (var HCHW in Pagenamelist.ToList())
+                {
+                    List<string> tempnamelist = new List<string>();
+                    if (HCHW.Contains("HW%") || HCHW.Contains("HC%"))
+                    {
+                        tempnamelist.Add(HCHW);
+                        Pagenamelist.RemoveAll(x => x.Contains("HC%") || x.Contains("HW%"));
+                    }
+                }
+
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            HideOnline();
         }
     }
 }
