@@ -22,7 +22,7 @@ namespace RunesReformed1._1.Translators
             // Ex:   runeDataCollection[ runePaths.indexOf(  ID  ) ][ theIndexOfTheRow ][ theIndexOfRuneInThatRow ]
             //  |    runeDataCollection[ runePaths.indexOf( 8000 ) ][         0        ][            1            ]
             // The above example returns '8008|Lethal Tempo', then split the string at '|' and '[#]' with 0 or 1 to get the ID (0) or the Name (1).   
-            List<long> runePaths = new List<long>() { 8000, 8100, 8200, 8300, 8400 };
+            List<long> runePaths = new List<long>() { 8000, 8100, 8200, 8400, 8300 };
             List<List<List<string>>> runeDataCollection =
                 new List<List<List<string>>> {
                     // Precision // Slots
@@ -46,20 +46,21 @@ namespace RunesReformed1._1.Translators
                         new List<string>() { "8210|Transcendence", "8234|Celerity", "8233|Absolute Focus" },
                         new List<string>() { "8237|Scorch", "8232|Waterwalking", "8236|Gathering Storm" }
                     },
+                    // Resolve // Slots
+                    new List<List<string>>() {
+                        new List<string>() { "8437|Grasp of the Undying", "8439|Aftershock", "8465|Guardian" },
+                        new List<string>() { "8242|Unflinching", "8446|Demolish", "8463|Font of Life" },
+                        new List<string>() { "8430|Iron Skin", "8435|Mirror Shell", "8429|Conditioning" },
+                        new List<string>() { "8451|Overgrowth", "8453|Revitalize", "8444|Second Wind" }
+                    },
                     // Inspiration // Slots
                     new List<List<string>>() {
                         new List<string>() { "8326|Unsealed Spellbook", "8351|Glacial Augment", "8359|Kleptomancy" },
                         new List<string>() { "8306|Hextech Flashtraption", "8345|Biscuit Delivery", "8313|Perfect Timing" },
                         new List<string>() { "8304|Magical Footwear", "8321|Future's Market", "8316|Minion Dematerializer" },
                         new List<string>() { "8347|Cosmic Insight", "8410|Approach Velocity", "8339|Celestial Body" }
-                    },
-                    // Resolve // Slots
-                    new List<List<string>>() {
-                        new List<string>() { "8437|Grasp of the Undying", "8439|Aftershock", "8465|Guardian" },
-                            new List<string>() { "8242|Unflinching", "8446|Demolish", "8463|Font of Life" },
-                            new List<string>() { "8430|Iron Skin", "8435|Mirror Shell", "8429|Conditioning" },
-                            new List<string>() { "8451|Overgrowth", "8453|Revitalize", "8444|Second Wind" }
                     }
+
                 };
 
             // The Array we are saving the ids once we firgure out what they each are.

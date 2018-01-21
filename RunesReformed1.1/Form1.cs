@@ -134,7 +134,7 @@ namespace RunesReformed1._1
             var getid = response.DynamicBody;
             var updateid = getid[0].tag_name;
 
-            if (updateid != "1.3.5")
+            if (updateid != "1.3.6")
             {
                 string messagetext =
                     "Update available, Press OK to download the new version";
