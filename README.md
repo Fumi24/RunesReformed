@@ -2,6 +2,9 @@
 
 An automatic rune setter for league of legends preseason rune changes, with over 350+ pages.
 
+# QUICK FIX - Riot Changed something and for now, just check the "delete page" option and uncheck it and it will work like normal
+
+
 ## How to use
 
 [Download here.](https://github.com/Fumi24/RunesReformed/releases/latest)
