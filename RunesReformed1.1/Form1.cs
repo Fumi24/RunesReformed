@@ -79,6 +79,7 @@ namespace RunesReformed1._1
                 MessageBox.Show("App not running with administrator privilege. Please run this app as administrator");
                 this.Close();
             }
+            DeleteCheck.Checked = true;
             updater();
             Leagueconnect();
             getchamps();
@@ -277,6 +278,7 @@ namespace RunesReformed1._1
                                 rune1 + "," + rune2 + "," + rune3 + "," + rune4 + "," + rune5 + "," + rune6 +
                                 "],\"subStyleId\":" + secondary + "}";
 
+
                 string password = token;
 
                 http.Request.Accept = HttpContentTypes.ApplicationJson;
@@ -293,7 +295,7 @@ namespace RunesReformed1._1
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Something somewhere went wrong, show this to the admin " + exception.Message);
+                MessageBox.Show(exception.Message);
             }
         }
 
