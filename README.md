@@ -2,6 +2,10 @@
 
 An automatic rune setter for league of legends preseason rune changes, with over 350+ pages.
 
+
+# Currently alot of pages will not work duo to the Magical Footwear changes, waiting for champion.gg to update and then it will be resolved.
+
+
 [In Action!](https://i.gyazo.com/97cfa959c2bb46ef7878a7d9cdf8530d.mp4)
 
 ## How to use
