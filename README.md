@@ -1,4 +1,4 @@
-i will not be working on RunesReformed for the next foreseeable future as im hitting exams, if i get some free time i will try to update the program if i can. If you like the program i would suggest you get out [OrangeNotes Runebook](https://github.com/OrangeNote/RuneBook) it does almost the same, and is much more professionally made. This doesnt not mean RunesReformed will stop working it just means the pages will become outdate by time.
+i will not be working on RunesReformed for the next foreseeable future as im hitting exams, if i get some free time i will try to update the program if i can. If you like the program i would suggest you check out [OrangeNotes Runebook](https://github.com/OrangeNote/RuneBook) it does almost the same, and is much more professionally made. This doesnt not mean RunesReformed will stop working it just means the pages will become outdate by time.
 
 
 # RunesReformed
