@@ -25,9 +25,6 @@ Select a page.
 
 Click "Set Runes"
 
-## Donating
-
-I've started a fund on paypal as the cost of running RunesReformed is pretty though as a student, any donations at all will go to make RunesReformed better. [Donation link](https://paypal.me/pools/c/811LSy2Lae)
 
 ## Creating your own page
 
