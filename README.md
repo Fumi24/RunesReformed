@@ -5,7 +5,7 @@ i will not be working on RunesReformed for the next foreseeable future as im hit
 
 An automatic rune setter for league of legends preseason rune changes, with over 350+ pages.
 
-
+Last Updated pages: 15/03/2018 - League Version v8.5-7189509.7189802
 
 [In Action!](https://i.gyazo.com/97cfa959c2bb46ef7878a7d9cdf8530d.mp4)
 
