@@ -36,7 +36,7 @@ Simply make a build and click the little Share icon in the button and then copy 
 - [x] Works in and out of champion select.
 - [x] You can add your own pages.
 - [x] Garena Support (Thanks Secret)
-
+- [x] Supports champion.gg and Koreanbuilds.net
 
 ## Thanks to
 
