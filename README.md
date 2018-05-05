@@ -30,7 +30,7 @@ Click "Set Runes"
 
 ## Future plans
 
-Im going to remove the ability to make pages, the reason being it sucks if you like this feature you should stay on 1.3.7 or earlier. I also plan to rewrite the program and backend to work better together, 
+Im going to remove the ability to make pages, the reason being it sucks if you like this feature you should stay on 1.3.7 or earlier. I also plan to rewrite the program and backend to work better together.
 
 ## Thanks to
 
