@@ -26,7 +26,7 @@ Click "Set Runes"
 - [x] Works in and out of champion select.
 - [x] You can add your own pages.
 - [x] Garena Support (Thanks Secret)
-- [x] Supports champion.gg and Koreanbuilds.net
+- [x] Supports champion.gg, Koreanbuilds.net and Runeforge.gg
 
 ## Future plans
 
