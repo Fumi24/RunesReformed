@@ -1,6 +1,6 @@
 # RunesReformed
 
-An automatic rune setter for league of legends preseason rune changes, with over 350+ pages.
+An automatic rune setter for league of legends preseason rune changes, with over 500+ pages.
 
 Last Updated pages: 06/05/2018 - League Version v8.9-7783363.7810256
 
