@@ -12,7 +12,6 @@ using System.Security.Principal;
 using System.Windows.Forms;
 using EasyHttp.Http;
 using System.Management;
-using RunesReformed1._1.Translators;
 using JsonFx.Json;
 
 namespace RunesReformed1._1
@@ -79,12 +78,10 @@ namespace RunesReformed1._1
                 MessageBox.Show("App not running with administrator privilege. Please run this app as administrator");
                 this.Close();
             }
-            DeleteCheck.Checked = true;
             updater();
             Leagueconnect();
             getchamps();
             getpages();
-            LoadOfflinePages();
             Champbox.DataSource = ChampionList;
         }
 
@@ -135,7 +132,7 @@ namespace RunesReformed1._1
             var getid = response.DynamicBody;
             var updateid = getid[0].tag_name;
 
-            if (updateid != "1.3.7")
+            if (updateid != "1.3.8")
             {
                 string messagetext =
                     "Update available, Press OK to download the new version";
@@ -158,28 +155,6 @@ namespace RunesReformed1._1
                     page.Rune4, page.RuneSecondary, page.Rune5, page.Rune6);
                 Pagelist.Add(ImportPageBox);
                 Pagenamelist.Add(page.PageName);
-            }
-        }
-
-        public void LoadOfflinePages()
-        {
-            string path = Environment.CurrentDirectory + @"\Runepages.txt";
-            if (!File.Exists(path))
-            {
-                File.CreateText(path);
-            }
-            else
-            {
-                foreach (string data in File.ReadAllLines(path))
-                {
-                    string[] runes = data.Split(',');
-                    RunePage import = new RunePage(
-                        runes[0], Convert.ToInt32(runes[1]), Convert.ToInt32(runes[2]),
-                        Convert.ToInt32(runes[3]), Convert.ToInt32(runes[4]), Convert.ToInt32(runes[5]),
-                        Convert.ToInt32(runes[6]), Convert.ToInt32(runes[7]), Convert.ToInt32(runes[8]));
-                    Pagelist.Add(import);
-                    Pagenamelist.Add(runes[0]);
-                }
             }
         }
 
@@ -298,44 +273,6 @@ namespace RunesReformed1._1
                 MessageBox.Show(exception.Message);
             }
         }
-
-        private void AddPage_Click(object sender, EventArgs e)
-        {
-            string Newpage = Microsoft.VisualBasic.Interaction.InputBox(
-                "Here you can add a page, a page contains a Name and the URL of Riots RunesReforged tool",
-                "RunesReformed",
-                "Name of page, Riot URL");
-
-            string[] SplitRiotpage = Newpage.Split(',');
-
-            RiotTranslator RT = new RiotTranslator();
-
-            int[] riotpage = RT.Translate(SplitRiotpage[1]);
-
-
-            if (string.IsNullOrEmpty(Newpage))
-                return;
-
-            string CheckDupes = Pagenamelist.Find(x => x == SplitRiotpage[1]);
-            if (CheckDupes != null)
-                MessageBox.Show("Duplicate Page");
-
-            RunePage import = new RunePage(
-                SplitRiotpage[0], riotpage[0], riotpage[1],
-                riotpage[2], riotpage[3], riotpage[4], riotpage[5], riotpage[6], riotpage[7]);
-            Pagelist.Add(import);
-            Pagenamelist.Add(SplitRiotpage[0]);
-
-
-            StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + @"\Runepages.txt", true);
-            sw.WriteLine(SplitRiotpage[0] + "," + riotpage[0] + "," + riotpage[1] + "," + riotpage[2] + "," + riotpage[3] + "," + riotpage[4]
-                + "," + riotpage[5] + "," + riotpage[6] + ',' + riotpage[7]);
-            sw.Flush();
-            sw.Close();
-
-
-            comboBox1_SelectedIndexChanged(Champbox, new EventArgs());
-        }
         public class Error
         {
             [JsonName("errorCode")]
@@ -349,16 +286,6 @@ namespace RunesReformed1._1
         private void DeleteCheck_CheckedChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void Runepagelink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("https://na.leagueoflegends.com/en/featured/preseason-update#builder");
-        }
-
-        private void Donatelink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("https://paypal.me/pools/c/811LSy2Lae");
         }
 
         private void Githublink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

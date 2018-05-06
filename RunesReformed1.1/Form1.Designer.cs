@@ -35,10 +35,7 @@
             this.Rolelbl = new System.Windows.Forms.Label();
             this.Pagelbl = new System.Windows.Forms.Label();
             this.Runebtn = new System.Windows.Forms.Button();
-            this.AddPage = new System.Windows.Forms.Button();
             this.DeleteCheck = new System.Windows.Forms.CheckBox();
-            this.Runepagelink = new System.Windows.Forms.LinkLabel();
-            this.Donatelink = new System.Windows.Forms.LinkLabel();
             this.Githublink = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
@@ -91,23 +88,13 @@
             // 
             // Runebtn
             // 
-            this.Runebtn.Location = new System.Drawing.Point(165, 66);
+            this.Runebtn.Location = new System.Drawing.Point(100, 66);
             this.Runebtn.Name = "Runebtn";
-            this.Runebtn.Size = new System.Drawing.Size(107, 23);
+            this.Runebtn.Size = new System.Drawing.Size(172, 23);
             this.Runebtn.TabIndex = 6;
             this.Runebtn.Text = "Set Runes";
             this.Runebtn.UseVisualStyleBackColor = true;
             this.Runebtn.Click += new System.EventHandler(this.Runebtn_Click);
-            // 
-            // AddPage
-            // 
-            this.AddPage.Location = new System.Drawing.Point(15, 66);
-            this.AddPage.Name = "AddPage";
-            this.AddPage.Size = new System.Drawing.Size(107, 23);
-            this.AddPage.TabIndex = 7;
-            this.AddPage.Text = "Add Page";
-            this.AddPage.UseVisualStyleBackColor = true;
-            this.AddPage.Click += new System.EventHandler(this.AddPage_Click);
             // 
             // DeleteCheck
             // 
@@ -120,33 +107,10 @@
             this.DeleteCheck.UseVisualStyleBackColor = true;
             this.DeleteCheck.CheckedChanged += new System.EventHandler(this.DeleteCheck_CheckedChanged);
             // 
-            // Runepagelink
-            // 
-            this.Runepagelink.AutoSize = true;
-            this.Runepagelink.Location = new System.Drawing.Point(12, 125);
-            this.Runepagelink.Name = "Runepagelink";
-            this.Runepagelink.Size = new System.Drawing.Size(81, 13);
-            this.Runepagelink.TabIndex = 9;
-            this.Runepagelink.TabStop = true;
-            this.Runepagelink.Text = "Runepage Tool";
-            this.Runepagelink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Runepagelink_LinkClicked);
-            // 
-            // Donatelink
-            // 
-            this.Donatelink.AutoSize = true;
-            this.Donatelink.Location = new System.Drawing.Point(137, 125);
-            this.Donatelink.Name = "Donatelink";
-            this.Donatelink.Size = new System.Drawing.Size(42, 13);
-            this.Donatelink.TabIndex = 10;
-            this.Donatelink.TabStop = true;
-            this.Donatelink.Text = "Donate";
-            this.Donatelink.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Donatelink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Donatelink_LinkClicked);
-            // 
             // Githublink
             // 
             this.Githublink.AutoSize = true;
-            this.Githublink.Location = new System.Drawing.Point(234, 125);
+            this.Githublink.Location = new System.Drawing.Point(12, 71);
             this.Githublink.Name = "Githublink";
             this.Githublink.Size = new System.Drawing.Size(38, 13);
             this.Githublink.TabIndex = 11;
@@ -158,12 +122,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 147);
+            this.ClientSize = new System.Drawing.Size(284, 122);
             this.Controls.Add(this.Githublink);
-            this.Controls.Add(this.Donatelink);
-            this.Controls.Add(this.Runepagelink);
             this.Controls.Add(this.DeleteCheck);
-            this.Controls.Add(this.AddPage);
             this.Controls.Add(this.Runebtn);
             this.Controls.Add(this.Pagelbl);
             this.Controls.Add(this.Rolelbl);
@@ -187,10 +148,7 @@
         private System.Windows.Forms.Label Rolelbl;
         private System.Windows.Forms.Label Pagelbl;
         private System.Windows.Forms.Button Runebtn;
-        private System.Windows.Forms.Button AddPage;
         private System.Windows.Forms.CheckBox DeleteCheck;
-        private System.Windows.Forms.LinkLabel Runepagelink;
-        private System.Windows.Forms.LinkLabel Donatelink;
         private System.Windows.Forms.LinkLabel Githublink;
     }
 }
