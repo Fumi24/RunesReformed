@@ -2,7 +2,7 @@
 
 An automatic rune setter for league of legends preseason rune changes, with over 500+ pages.
 
-Last Updated pages: 06/05/2018 - League Version v8.9-7783363.7810256
+All the rune pages should be update at 12:00 PM CEST +1 (Copenhagen)
 
 [In Action!](https://i.gyazo.com/97cfa959c2bb46ef7878a7d9cdf8530d.mp4)
 
