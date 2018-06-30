@@ -166,7 +166,16 @@ namespace RunesReformed1._1
                 http.Request.Accept = HttpContentTypes.ApplicationJson;
                 http.Request.ForceBasicAuth = true;
                 http.Request.SetBasicAuthentication("riot", token);
-                var response = http.Get("https://127.0.0.1:" + port + "/lol-perks/v1/currentpage");
+                HttpResponse response = null;
+                try
+                {
+                    response = http.Get("https://127.0.0.1:" + port + "/lol-perks/v1/currentpage"); 
+                }
+                catch(Exception e) // lol client closed / reopened
+                {
+                    Leagueconnect();
+                    response = http.Get("https://127.0.0.1:" + port + "/lol-perks/v1/currentpage");
+                }
                 var currentpage = response.DynamicBody;
 
                 int deleteid = currentpage.id;
