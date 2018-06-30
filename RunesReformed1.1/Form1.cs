@@ -163,10 +163,22 @@ namespace RunesReformed1._1
             if (DeleteCheck.Checked)
             {
                 http = new HttpClient();
-                http.Request.Accept = HttpContentTypes.ApplicationJson;
-                http.Request.ForceBasicAuth = true;
-                http.Request.SetBasicAuthentication("riot", token);
-                var response = http.Get("https://127.0.0.1:" + port + "/lol-perks/v1/currentpage");
+                HttpResponse response = null;
+                try
+                {
+                    http.Request.Accept = HttpContentTypes.ApplicationJson;
+                    http.Request.ForceBasicAuth = true;
+                    http.Request.SetBasicAuthentication("riot", token);
+                    response = http.Get("https://127.0.0.1:" + port + "/lol-perks/v1/currentpage"); 
+                }
+                catch(Exception e) // lol client closed / reopened
+                {
+                    Leagueconnect();
+                    http.Request.Accept = HttpContentTypes.ApplicationJson;
+                    http.Request.ForceBasicAuth = true;
+                    http.Request.SetBasicAuthentication("riot", token);
+                    response = http.Get("https://127.0.0.1:" + port + "/lol-perks/v1/currentpage");
+                }
                 var currentpage = response.DynamicBody;
 
                 int deleteid = currentpage.id;
@@ -253,14 +265,26 @@ namespace RunesReformed1._1
                                 rune1 + "," + rune2 + "," + rune3 + "," + rune4 + "," + rune5 + "," + rune6 +
                                 "],\"subStyleId\":" + secondary + "}";
 
+                HttpResponse response = null;
+                try
+                {
+                    string password = token;
 
-                string password = token;
+                    http.Request.Accept = HttpContentTypes.ApplicationJson;
+                    http.Request.SetBasicAuthentication("riot", password);
 
-                http.Request.Accept = HttpContentTypes.ApplicationJson;
-                http.Request.SetBasicAuthentication("riot", password);
+                    response = http.Post("https://127.0.0.1:" + port + "/lol-perks/v1/pages", inputLCUx, HttpContentTypes.ApplicationJson);
+                }
+                catch(Exception e2)
+                {
+                    Leagueconnect();
+                    string password = token;
 
-                var response = http.Post("https://127.0.0.1:" + port + "/lol-perks/v1/pages", inputLCUx, HttpContentTypes.ApplicationJson);
+                    http.Request.Accept = HttpContentTypes.ApplicationJson;
+                    http.Request.SetBasicAuthentication("riot", password);
 
+                    response = http.Post("https://127.0.0.1:" + port + "/lol-perks/v1/pages", inputLCUx, HttpContentTypes.ApplicationJson);
+                }
                 if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 {
                     var error = response.StaticBody<Error>();
