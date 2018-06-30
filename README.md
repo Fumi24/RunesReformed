@@ -4,6 +4,8 @@ An automatic rune setter for league of legends preseason rune changes, with over
 
 All the rune pages should be update at 12:00 PM CEST +1 (Copenhagen) ([Countdown](https://is.gd/SB7Qf1))
 
+# After the 1.4 update all other versions are broken and you need to use 1.4 sorry for everyone who liked the earlier version but this was a needed step.
+
 [In Action!](https://i.gyazo.com/97cfa959c2bb46ef7878a7d9cdf8530d.mp4)
 
 ## How to use
