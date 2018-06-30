@@ -45,9 +45,10 @@ namespace RunesReformed1._1
             public int _runeSecondary { get; set; }
             public int _rune5 { get; set; }
             public int _rune6 { get; set; }
+            public int _ID { get; set; }
 
             public RunePage(string name, int start, int rune1, int rune2, int rune3, int rune4, int secondary,
-                int rune5, int rune6)
+                int rune5, int rune6, int id)
             {
                 _pageName = name;
                 _runeStart = start;
@@ -58,9 +59,11 @@ namespace RunesReformed1._1
                 _runeSecondary = secondary;
                 _rune5 = rune5;
                 _rune6 = rune6;
+                _ID = id;
             }
         }
 
+        public List<Champion> champs = new List<Champion>();
         public List<string> ChampionList = new List<string>();
         public List<RunePage> Pagelist = new List<RunePage>();
         public List<string> Pagenamelist = new List<string>();
@@ -93,36 +96,34 @@ namespace RunesReformed1._1
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Pagebox.Items.Clear();
+
+
+
             string champ = Champbox.SelectedItem.ToString();
 
-            foreach (var rune in Pagenamelist)
-            {
-                if (Pagenamelist.Count == 0)
-                {
+            Champion c = champs.Find(x => x.Name == champ);
 
-                }
-                else
-                {
-                    if (rune.Contains(champ) || rune.Contains(champ.ToLower()))
-                    {
-                        Pagebox.Items.Add(rune);
-                    }
-                }
+            List<RunePage> p = Pagelist.FindAll(x => x._ID == c.Id);
+
+            foreach (var item in p)
+            {
+                Pagebox.Items.Add(item._pageName);
             }
         }
 
         public void getchamps()
         {
             http.Request.Accept = HttpContentTypes.ApplicationJson;
-            var response = http.Get("https://webapichampions.azurewebsites.net/api/values");
+            var response = http.Get("http://runereformedapi.azurewebsites.net/api/runes/Championlist");
             var getchamps = response.DynamicBody;
 
             foreach (var champ in getchamps)
             {
-                Champion ImportChampBox = new Champion(champ._Id, champ._DisplayName);
+                Champion ImportChampBox = new Champion(champ.ID, champ.Champname);
                 ChampionList.Add(ImportChampBox.Name);
-                ChampionList.Sort();
+                champs.Add(ImportChampBox);
             }
+            ChampionList.Sort();
         }
 
         public void updater()
@@ -132,7 +133,7 @@ namespace RunesReformed1._1
             var getid = response.DynamicBody;
             var updateid = getid[0].tag_name;
 
-            if (updateid != "1.3.8")
+            if (updateid != "1.4")
             {
                 string messagetext =
                     "Update available, Press OK to download the new version";
@@ -146,15 +147,15 @@ namespace RunesReformed1._1
         public void getpages()
         {
             http.Request.Accept = HttpContentTypes.ApplicationJson;
-            var response = http.Get("https://wepapirunepages.azurewebsites.net/api/values");
+            var response = http.Get("http://runereformedapi.azurewebsites.net/api/runes/Runepages");
             var getpages = response.DynamicBody;
 
             foreach (var page in getpages)
             {
-                RunePage ImportPageBox = new RunePage(page.PageName, page.Runestart, page.Rune1, page.Rune2, page.Rune3,
-                    page.Rune4, page.RuneSecondary, page.Rune5, page.Rune6);
+                RunePage ImportPageBox = new RunePage(page._pageName, page._runeStart, page._rune1, page._rune2, page._rune3,
+                    page._rune4, page._runeSecondary, page._rune5, page._rune6, page._ID);
                 Pagelist.Add(ImportPageBox);
-                Pagenamelist.Add(page.PageName);
+                Pagenamelist.Add(page._pageName);
             }
         }
 
