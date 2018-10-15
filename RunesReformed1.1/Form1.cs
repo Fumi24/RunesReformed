@@ -13,6 +13,8 @@ using System.Windows.Forms;
 using EasyHttp.Http;
 using System.Management;
 using JsonFx.Json;
+using RunesReformed1._1.API;
+using RunesReformed1.Models;
 
 namespace RunesReformed1._1
 {
@@ -21,51 +23,12 @@ namespace RunesReformed1._1
         public static string token;
         public static string port;
         public static HttpClient http;
-        public class Champion
-        {
-            public int Id { get; set; }
-            public string Name { get; set; }
 
-            public Champion(int id, string name)
-            {
-                Id = id;
-                Name = name;
-            }
-
-        }
-
-        public class RunePage
-        {
-            public string _pageName { get; set; }
-            public int _runeStart { get; set; }
-            public int _rune1 { get; set; }
-            public int _rune2 { get; set; }
-            public int _rune3 { get; set; }
-            public int _rune4 { get; set; }
-            public int _runeSecondary { get; set; }
-            public int _rune5 { get; set; }
-            public int _rune6 { get; set; }
-            public int _ID { get; set; }
-
-            public RunePage(string name, int start, int rune1, int rune2, int rune3, int rune4, int secondary,
-                int rune5, int rune6, int id)
-            {
-                _pageName = name;
-                _runeStart = start;
-                _rune1 = rune1;
-                _rune2 = rune2;
-                _rune3 = rune3;
-                _rune4 = rune4;
-                _runeSecondary = secondary;
-                _rune5 = rune5;
-                _rune6 = rune6;
-                _ID = id;
-            }
-        }
-
+        GetChamps GC = new GetChamps();
+        GetPages GP = new GetPages();
         public List<Champion> champs = new List<Champion>();
         public List<string> ChampionList = new List<string>();
-        public List<RunePage> Pagelist = new List<RunePage>();
+        public List<Pages> Pagelist = new List<Pages>();
         public List<string> Pagenamelist = new List<string>();
 
         public RunesReformed()
@@ -83,9 +46,19 @@ namespace RunesReformed1._1
             }
             updater();
             Leagueconnect();
-            getchamps();
-            getpages();
+            champs = GC.GetChampions();
+            Pagelist = GP.GetRunePages();
+
+            foreach (var item in champs)
+            {
+                ChampionList.Add(item.Champname);
+            }
+            foreach (var item in Pagelist)
+            {
+                Pagenamelist.Add(item.PageName);
+            }
             Champbox.DataSource = ChampionList;
+            Pagenamelist.Sort();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -96,34 +69,16 @@ namespace RunesReformed1._1
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Pagebox.Items.Clear();
-
-
-
             string champ = Champbox.SelectedItem.ToString();
 
-            Champion c = champs.Find(x => x.Name == champ);
+            Champion c = champs.Find(x => x.Champname == champ);
 
-            List<RunePage> p = Pagelist.FindAll(x => x._ID == c.Id);
+            List<Pages> p = Pagelist.FindAll(x => x.Id == c.Id);
 
             foreach (var item in p)
             {
-                Pagebox.Items.Add(item._pageName);
+                Pagebox.Items.Add(item.PageName);
             }
-        }
-
-        public void getchamps()
-        {
-            http.Request.Accept = HttpContentTypes.ApplicationJson;
-            var response = http.Get("http://runereformedapi.azurewebsites.net/api/runes/Championlist");
-            var getchamps = response.DynamicBody;
-
-            foreach (var champ in getchamps)
-            {
-                Champion ImportChampBox = new Champion(champ.ID, champ.Champname);
-                ChampionList.Add(ImportChampBox.Name);
-                champs.Add(ImportChampBox);
-            }
-            ChampionList.Sort();
         }
 
         public void updater()
@@ -133,7 +88,7 @@ namespace RunesReformed1._1
             var getid = response.DynamicBody;
             var updateid = getid[0].tag_name;
 
-            if (updateid != "1.4")
+            if (updateid != "1.4.1")
             {
                 string messagetext =
                     "Update available, Press OK to download the new version";
@@ -142,20 +97,6 @@ namespace RunesReformed1._1
                 {
                     Process.Start("https://github.com/Fumi24/RunesReformed/releases/latest");
                 }
-            }
-        }
-        public void getpages()
-        {
-            http.Request.Accept = HttpContentTypes.ApplicationJson;
-            var response = http.Get("http://runereformedapi.azurewebsites.net/api/runes/Runepages");
-            var getpages = response.DynamicBody;
-
-            foreach (var page in getpages)
-            {
-                RunePage ImportPageBox = new RunePage(page._pageName, page._runeStart, page._rune1, page._rune2, page._rune3,
-                    page._rune4, page._runeSecondary, page._rune5, page._rune6, page._ID);
-                Pagelist.Add(ImportPageBox);
-                Pagenamelist.Add(page._pageName);
             }
         }
 
@@ -246,21 +187,24 @@ namespace RunesReformed1._1
             DeletePage();
             if (Pagebox.SelectedItem == null)
                 Pagebox.SelectedIndex = 0;
-            String selectedPage = Pagebox.SelectedItem.ToString();
+            var selectedPage = Pagebox.SelectedItem.ToString();
+            var index = Pagebox.SelectedIndex;
 
-            RunePage runes = Pagelist.Find(r => r._pageName == selectedPage);
+            Champion c = champs.Find(x => x.Champname == Champbox.SelectedValue.ToString());
+            List<Pages> runes = Pagelist.FindAll(p => p.Id == c.Id);
+            Pages correctrunes = runes[index];
 
             try
             {
-                int Runestart = runes._runeStart;
-                string name = runes._pageName;
-                int rune1 = runes._rune1;
-                int rune2 = runes._rune2;
-                int rune3 = runes._rune3;
-                int rune4 = runes._rune4;
-                int rune5 = runes._rune5;
-                int rune6 = runes._rune6;
-                int secondary = runes._runeSecondary;
+                long Runestart = correctrunes.RuneStart;
+                string name = correctrunes.PageName;
+                long rune1 = correctrunes.Rune1;
+                long rune2 = correctrunes.Rune2;
+                long rune3 = correctrunes.Rune3;
+                long rune4 = correctrunes.Rune4;
+                long rune5 = correctrunes.Rune5;
+                long rune6 = correctrunes.Rune6;
+                long secondary = correctrunes.RuneSecondary;
 
                 var inputLCUx = @"{""name"":""" + name + "\",\"primaryStyleId\":" + Runestart + ",\"selectedPerkIds\": [" +
                                 rune1 + "," + rune2 + "," + rune3 + "," + rune4 + "," + rune5 + "," + rune6 +
@@ -276,7 +220,7 @@ namespace RunesReformed1._1
 
                     response = http.Post("https://127.0.0.1:" + port + "/lol-perks/v1/pages", inputLCUx, HttpContentTypes.ApplicationJson);
                 }
-                catch(Exception e2)
+                catch (Exception e2)
                 {
                     Leagueconnect();
                     string password = token;
