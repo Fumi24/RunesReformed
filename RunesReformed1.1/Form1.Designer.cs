@@ -46,7 +46,7 @@
             this.Champbox.FormattingEnabled = true;
             this.Champbox.Location = new System.Drawing.Point(100, 12);
             this.Champbox.Name = "Champbox";
-            this.Champbox.Size = new System.Drawing.Size(172, 21);
+            this.Champbox.Size = new System.Drawing.Size(192, 21);
             this.Champbox.TabIndex = 0;
             this.Champbox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -56,7 +56,7 @@
             this.Pagebox.FormattingEnabled = true;
             this.Pagebox.Location = new System.Drawing.Point(100, 39);
             this.Pagebox.Name = "Pagebox";
-            this.Pagebox.Size = new System.Drawing.Size(172, 21);
+            this.Pagebox.Size = new System.Drawing.Size(192, 21);
             this.Pagebox.TabIndex = 1;
             // 
             // Champlbl
@@ -90,7 +90,7 @@
             // 
             this.Runebtn.Location = new System.Drawing.Point(100, 66);
             this.Runebtn.Name = "Runebtn";
-            this.Runebtn.Size = new System.Drawing.Size(172, 23);
+            this.Runebtn.Size = new System.Drawing.Size(192, 23);
             this.Runebtn.TabIndex = 6;
             this.Runebtn.Text = "Set Runes";
             this.Runebtn.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@
             // DeleteCheck
             // 
             this.DeleteCheck.AutoSize = true;
-            this.DeleteCheck.Location = new System.Drawing.Point(15, 96);
+            this.DeleteCheck.Location = new System.Drawing.Point(12, 95);
             this.DeleteCheck.Name = "DeleteCheck";
             this.DeleteCheck.Size = new System.Drawing.Size(122, 17);
             this.DeleteCheck.TabIndex = 8;
@@ -122,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 122);
+            this.ClientSize = new System.Drawing.Size(304, 122);
             this.Controls.Add(this.Githublink);
             this.Controls.Add(this.DeleteCheck);
             this.Controls.Add(this.Runebtn);

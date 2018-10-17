@@ -15,11 +15,17 @@ using System.Management;
 using JsonFx.Json;
 using RunesReformed1._1.API;
 using RunesReformed1.Models;
+using RestSharp;
+using System.Timers;
+using System.Net.NetworkInformation;
+using RunesReformed1._1.Models;
+using Newtonsoft.Json;
 
 namespace RunesReformed1._1
 {
     public partial class RunesReformed : Form
     {
+        public string ping = "0";
         public static string token;
         public static string port;
         public static HttpClient http;
@@ -58,7 +64,6 @@ namespace RunesReformed1._1
                 Pagenamelist.Add(item.PageName);
             }
             Champbox.DataSource = ChampionList;
-            Pagenamelist.Sort();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -88,7 +93,7 @@ namespace RunesReformed1._1
             var getid = response.DynamicBody;
             var updateid = getid[0].tag_name;
 
-            if (updateid != "1.4.1")
+            if (updateid != "1.4.2")
             {
                 string messagetext =
                     "Update available, Press OK to download the new version";
@@ -105,15 +110,15 @@ namespace RunesReformed1._1
             if (DeleteCheck.Checked)
             {
                 http = new HttpClient();
-                HttpResponse response = null;
+                EasyHttp.Http.HttpResponse response = null;
                 try
                 {
                     http.Request.Accept = HttpContentTypes.ApplicationJson;
                     http.Request.ForceBasicAuth = true;
                     http.Request.SetBasicAuthentication("riot", token);
-                    response = http.Get("https://127.0.0.1:" + port + "/lol-perks/v1/currentpage"); 
+                    response = http.Get("https://127.0.0.1:" + port + "/lol-perks/v1/currentpage");
                 }
-                catch(Exception e) // lol client closed / reopened
+                catch (Exception e) // lol client closed / reopened
                 {
                     Leagueconnect();
                     http.Request.Accept = HttpContentTypes.ApplicationJson;
@@ -210,7 +215,7 @@ namespace RunesReformed1._1
                                 rune1 + "," + rune2 + "," + rune3 + "," + rune4 + "," + rune5 + "," + rune6 +
                                 "],\"subStyleId\":" + secondary + "}";
 
-                HttpResponse response = null;
+                EasyHttp.Http.HttpResponse response = null;
                 try
                 {
                     string password = token;

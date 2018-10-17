@@ -25,6 +25,7 @@ namespace RunesReformed1._1.API
             {
                 Champnames.Add(item);
             }
+            Champnames.Sort((x, y) => x.Champname.CompareTo(y.Champname));
             return Champnames;
         }
     }
