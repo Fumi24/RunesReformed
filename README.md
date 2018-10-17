@@ -1,6 +1,6 @@
 # RunesReformed
 
-An automatic rune setter for league of legends preseason rune changes, with over 500+ pages.
+An automatic rune setter for league of legends preseason rune changes, with over 300+ pages.
 
 All the rune pages should be update at 12:00 PM CEST +1 (Copenhagen) ([Countdown](https://is.gd/SB7Qf1))
 
