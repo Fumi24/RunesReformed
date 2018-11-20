@@ -22,6 +22,10 @@ Select a page.
 
 Click "Set Runes"
 
+## Preseason
+
+In season 9 preseason, we are getting stat shards(which already work in the program) but its going to be a few days before champion.gg gets updated which means i've simply made every runepage have +10 adaptive x2 and HP until champion.gg gets updated.
+
 ## Features
 - [x] Works in and out of champion select.
 - [x] Garena Support (Thanks Secret)
