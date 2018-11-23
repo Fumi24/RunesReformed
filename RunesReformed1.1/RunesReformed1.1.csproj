@@ -88,7 +88,6 @@
     </Compile>
     <Compile Include="Models\Champion.cs" />
     <Compile Include="Models\Pages.cs" />
-    <Compile Include="Models\Region.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

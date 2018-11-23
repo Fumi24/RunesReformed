@@ -36,6 +36,15 @@ namespace RunesReformed1.Models
         [JsonProperty("_rune6")]
         public long Rune6 { get; set; }
 
+        [JsonProperty("_rune7")]
+        public long Rune7 { get; set; }
+
+        [JsonProperty("_rune8")]
+        public long Rune8 { get; set; }
+
+        [JsonProperty("_rune9")]
+        public long Rune9 { get; set; }
+
         [JsonProperty("_ID")]
         public long Id { get; set; }
     }

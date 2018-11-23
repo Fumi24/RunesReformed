@@ -18,7 +18,6 @@ using RunesReformed1.Models;
 using RestSharp;
 using System.Timers;
 using System.Net.NetworkInformation;
-using RunesReformed1._1.Models;
 using Newtonsoft.Json;
 
 namespace RunesReformed1._1
@@ -64,6 +63,8 @@ namespace RunesReformed1._1
                 Pagenamelist.Add(item.PageName);
             }
             Champbox.DataSource = ChampionList;
+
+            DeleteCheck.Checked = Properties.Settings.Default.Checkdelete;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -93,7 +94,7 @@ namespace RunesReformed1._1
             var getid = response.DynamicBody;
             var updateid = getid[0].tag_name;
 
-            if (updateid != "1.4.2")
+            if (updateid != "1.5")
             {
                 string messagetext =
                     "Update available, Press OK to download the new version";
@@ -202,17 +203,20 @@ namespace RunesReformed1._1
             try
             {
                 long Runestart = correctrunes.RuneStart;
-                string name = correctrunes.PageName;
+                string name = correctrunes.PageName;    
                 long rune1 = correctrunes.Rune1;
                 long rune2 = correctrunes.Rune2;
                 long rune3 = correctrunes.Rune3;
                 long rune4 = correctrunes.Rune4;
                 long rune5 = correctrunes.Rune5;
                 long rune6 = correctrunes.Rune6;
+                long rune7 = correctrunes.Rune7;
+                long rune8 = correctrunes.Rune8;
+                long rune9 = correctrunes.Rune9;
                 long secondary = correctrunes.RuneSecondary;
 
-                var inputLCUx = @"{""name"":""" + name + "\",\"primaryStyleId\":" + Runestart + ",\"selectedPerkIds\": [" +
-                                rune1 + "," + rune2 + "," + rune3 + "," + rune4 + "," + rune5 + "," + rune6 +
+                var inputLCUx = @"{""current"": true, ""name"":""" + name + "\",\"primaryStyleId\":" + Runestart + ",\"selectedPerkIds\": [" +
+                                rune1 + "," + rune2 + "," + rune3 + "," + rune4 + "," + rune5 + "," + rune6 + "," + rune7 + "," + rune8 + "," + rune9 +
                                 "],\"subStyleId\":" + secondary + "}";
 
                 EasyHttp.Http.HttpResponse response = null;
@@ -270,6 +274,12 @@ namespace RunesReformed1._1
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_Close(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.Checkdelete = DeleteCheck.Checked;
+            Properties.Settings.Default.Save();
         }
     }
 }

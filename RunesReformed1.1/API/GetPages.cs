@@ -14,7 +14,7 @@ namespace RunesReformed1._1.API
         public List<Pages> GetRunePages()
         {
             List<Pages> pageList = new List<Pages>();
-            var client = new RestClient("http://runereformedapi.azurewebsites.net/api/runes/Runepages");
+            var client = new RestClient("https://runereformedapi.azurewebsites.net/api/GetPages");
             var request = new RestRequest();
             var restResponse = client.Execute(request);
 
