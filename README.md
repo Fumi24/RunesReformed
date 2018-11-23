@@ -2,7 +2,7 @@
 
 An automatic rune setter for league of legends, with over 300+ pages.
 
-All the rune pages should be update at 12:00 PM CEST +1 (Copenhagen) everday! ([Countdown](https://is.gd/SB7Qf1))
+All the rune pages should be update at 11:00 PM CEST +1 (Copenhagen) everday! ([Countdown](https://is.gd/SB7Qf1))
 
 [In Action!](https://i.gyazo.com/97cfa959c2bb46ef7878a7d9cdf8530d.mp4)
 
