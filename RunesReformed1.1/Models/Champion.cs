@@ -8,10 +8,10 @@ namespace RunesReformed1.Models
 {
     public class Champion
     {
-        [JsonProperty("ID")]
+        [JsonProperty("id")]
         public long Id { get; set; }
 
-        [JsonProperty("Champname")]
+        [JsonProperty("champname")]
         public string Champname { get; set; }
     }
 }

@@ -1,0 +1,14 @@
+D:\OneDrive - EUVN\personal_projects\RunesReformed\API\bin\Debug\netcoreapp2.1\API.deps.json
+D:\OneDrive - EUVN\personal_projects\RunesReformed\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.json
+D:\OneDrive - EUVN\personal_projects\RunesReformed\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.dev.json
+D:\OneDrive - EUVN\personal_projects\RunesReformed\API\bin\Debug\netcoreapp2.1\API.dll
+D:\OneDrive - EUVN\personal_projects\RunesReformed\API\bin\Debug\netcoreapp2.1\API.pdb
+D:\OneDrive - EUVN\personal_projects\RunesReformed\API\obj\Debug\netcoreapp2.1\API.csprojAssemblyReference.cache
+D:\OneDrive - EUVN\personal_projects\RunesReformed\API\obj\Debug\netcoreapp2.1\API.csproj.CoreCompileInputs.cache
+D:\OneDrive - EUVN\personal_projects\RunesReformed\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cache
+D:\OneDrive - EUVN\personal_projects\RunesReformed\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cs
+D:\OneDrive - EUVN\personal_projects\RunesReformed\API\obj\Debug\netcoreapp2.1\API.AssemblyInfoInputs.cache
+D:\OneDrive - EUVN\personal_projects\RunesReformed\API\obj\Debug\netcoreapp2.1\API.AssemblyInfo.cs
+D:\OneDrive - EUVN\personal_projects\RunesReformed\API\obj\Debug\netcoreapp2.1\API.RazorTargetAssemblyInfo.cache
+D:\OneDrive - EUVN\personal_projects\RunesReformed\API\obj\Debug\netcoreapp2.1\API.dll
+D:\OneDrive - EUVN\personal_projects\RunesReformed\API\obj\Debug\netcoreapp2.1\API.pdb
