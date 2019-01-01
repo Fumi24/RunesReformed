@@ -15,7 +15,7 @@ namespace RunesReformed1._1.API
         public List<Champion> GetChampions()
         {
             List<Champion> Champnames = new List<Champion>();
-            var client = new RestClient("https://localhost:44388/api/champions");
+            var client = new RestClient("http://localhost:5000/api/champions");
             var request = new RestRequest();
             var restResponse = client.Execute(request);
 

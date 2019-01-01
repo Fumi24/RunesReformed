@@ -14,7 +14,7 @@ namespace RunesReformed1._1.API
         public List<Pages> GetRunePages()
         {
             List<Pages> pageList = new List<Pages>();
-            var client = new RestClient("https://localhost:44388/api/runes");
+            var client = new RestClient("http://localhost:5000/api/runes");
             var request = new RestRequest();
             var restResponse = client.Execute(request);
 
