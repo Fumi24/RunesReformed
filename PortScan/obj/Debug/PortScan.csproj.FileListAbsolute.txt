@@ -1,7 +1,0 @@
-D:\OneDrive - EUVN\personal_projects\RunesReformed\PortScan\bin\Debug\PortScan.exe.config
-D:\OneDrive - EUVN\personal_projects\RunesReformed\PortScan\bin\Debug\PortScan.exe
-D:\OneDrive - EUVN\personal_projects\RunesReformed\PortScan\bin\Debug\PortScan.pdb
-D:\OneDrive - EUVN\personal_projects\RunesReformed\PortScan\obj\Debug\PortScan.csprojAssemblyReference.cache
-D:\OneDrive - EUVN\personal_projects\RunesReformed\PortScan\obj\Debug\PortScan.csproj.CoreCompileInputs.cache
-D:\OneDrive - EUVN\personal_projects\RunesReformed\PortScan\obj\Debug\PortScan.exe
-D:\OneDrive - EUVN\personal_projects\RunesReformed\PortScan\obj\Debug\PortScan.pdb
