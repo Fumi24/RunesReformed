@@ -268,40 +268,11 @@ namespace API.Controllers
     [ApiController]
     public class RunesController : ControllerBase
     {
-        public static readonly string API_KEY = "<KEY_HERE>";
         
         // GET: api/Runes
         [HttpGet]
         public RunePage[] Get()
         {
-            if (Startup.cachedPages != null)
-            {
-                var diff = (DateTime.Now - Startup.lastRefresh).TotalMinutes;
-                if (diff < 60)
-                    return Startup.cachedPages;
-                else
-                    Startup.lastRefresh = DateTime.Now; // and continue = refresh
-            }
-
-            List<RunePage> pages = new List<RunePage>();
-
-            foreach (var champion in Champions.ChampionsList)
-            {
-                var client = new RestClient("http://api.champion.gg");
-                var request = new RestRequest($"v2/champions/{champion.ID}?elo=PLATINUM&limit=200&champData=hashes&api_key={API_KEY}", Method.GET);
-
-                var queryResult = client.Execute<List<RootObject>>(request).Data;
-
-                foreach (var rootObject in queryResult)
-                {
-
-                    if (rootObject.hashes.runehash == null) continue;
-                    pages.Add(new RunePage(rootObject.role, (int)(rootObject.hashes.runehash.highestWinrate.winrate * 100), true, rootObject.hashes.runehash.highestWinrate.hash, rootObject._id.championId.ToString()));
-                    pages.Add(new RunePage(rootObject.role, (int)(rootObject.hashes.runehash.highestCount.winrate * 100), false, rootObject.hashes.runehash.highestCount.hash, rootObject._id.championId.ToString()));
-                }
-            }
-
-            Startup.cachedPages = pages.ToArray();
             return Startup.cachedPages;
         }
 
